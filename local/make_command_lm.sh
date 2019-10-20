@@ -2,7 +2,7 @@
 
 if [ -f path.sh ]; then . path.sh; fi
 
-ngram-count -lm db/command.lm -text $corpus -order 1
+/opt/srilm/bin/i686-m64/ngram-count -lm db/command.lm -text $corpus -order 1
 cat db/command.lm | arpa2fst --disambig-symbol=#0 \
     --read-symbol-table=$dest/words.txt - $dest/G_1.fst
 hash_english=$(grep '^\#english' data/dict1/words.txt | awk '{ print $2 }')
